@@ -1,0 +1,15 @@
+﻿<UserControl x:Class="GMapTestApplication.PinMarker"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" x:Name="PinMark"
+             Background="Transparent" MouseEnter="PinMark_MouseEnter" MouseLeave="PinMark_MouseLeave">
+    <Image Source="Images\Needle.png" x:Name="icon" Width="50" Height="40">
+        <Image.RenderTransform>
+            <TransformGroup>
+                <RotateTransform CenterX="15" CenterY="15" Angle="126"/>
+                <TranslateTransform Y="-10" X="-2" />
+            </TransformGroup>
+        </Image.RenderTransform>
+    </Image>
+</UserControl>

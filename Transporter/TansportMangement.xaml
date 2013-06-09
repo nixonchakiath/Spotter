@@ -1,0 +1,130 @@
+﻿<UserControl x:Class="Transporter.TansportMangement"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="600">
+    <Grid>
+        <TabControl>
+            <TabItem Header="Vehicle">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="100" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Grid.ColumnSpan="2" TextAlignment="Left" Text="Vehicles" FontWeight="Bold"/>
+                    <ListView Grid.Column="0" Grid.Row="1" Margin="2" Name="listView"
+                              ItemsSource="{Binding Vehicles}"
+                              SelectedItem="{Binding SelectedVehicle}">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="ID" DisplayMemberBinding="{Binding ID}"/>
+                                <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" Width="150"/>
+                                <GridViewColumn Header="Number" DisplayMemberBinding="{Binding Number}" Width="100"/>
+                                <GridViewColumn Header="Status" DisplayMemberBinding="{Binding Status}" Width="100"/>
+                                <GridViewColumn Header="Details" DisplayMemberBinding="{Binding Details}" Width="250"/>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                    <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="1">
+                        <Button  Margin="2" Height="25" Content="Add" Click="AddVehicle_Click" />
+                        <Button  Margin="2" Height="25" Content="Remove" Click="RemoveVehicle_Click"/>
+                    </StackPanel>
+
+                    <TextBlock Grid.Row="2" Grid.ColumnSpan="2" TextAlignment="Left" Text="Drivers" FontWeight="Bold"/>
+                    <ListView Grid.Row="3" Grid.Column="0" Margin="2" Name="listView2"
+                              ItemsSource="{Binding Drivers}"
+                              SelectedItem="{Binding SelectedDriver}">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="ID" DisplayMemberBinding="{Binding ID}"/>
+                                <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" Width="150"/>
+                                <GridViewColumn Header="CellNumber" DisplayMemberBinding="{Binding CellNumber}" Width="120"/>
+                                <GridViewColumn Header="Address" DisplayMemberBinding="{Binding Address}" Width="250"/>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                    <StackPanel  Grid.Row="3" Orientation="Vertical" Grid.Column="1">
+                        <Button  Margin="2" Height="25" Content="Add" Click="AddDriver_Click" />
+                        <Button  Margin="2" Height="25" Content="Remove" Click="RemoveDriver_Click"/>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Route">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="100" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0" Grid.ColumnSpan="2" TextAlignment="Left" Text="Locations" FontWeight="Bold"/>
+                    <ListView Grid.Row="1" Grid.Column="0" Margin="2" Name="loclistView"
+                              ItemsSource="{Binding Locations}"
+                              SelectedItem="{Binding SelectedLocation}">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" Width="150"/>
+                                <GridViewColumn Header="Latitude" DisplayMemberBinding="{Binding Latitude}" Width="250"/>
+                                <GridViewColumn Header="Longitude" DisplayMemberBinding="{Binding Longitude}" Width="250"/>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                    <StackPanel Grid.Row="1" Orientation="Vertical" Grid.Column="1">
+                        <Button  Margin="2" Height="25" Content="Add" Click="AddLocation_Click" />
+                        <Button  Margin="2" Height="25" Content="Remove" Click="RemoveLocation_Click"/>
+                    </StackPanel>
+
+                    <TextBlock Grid.Row="2" Grid.ColumnSpan="2" TextAlignment="Left" Text="Routes" FontWeight="Bold"/>
+                    <ListView Grid.Row="3" Grid.Column="0" Margin="2" Name="routelistView"
+                              ItemsSource="{Binding Routes}"
+                              SelectedItem="{Binding SelectedRoute}">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="No" DisplayMemberBinding="{Binding Id}"/>
+                                <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" Width="150"/>
+                                <GridViewColumn Header="Source" DisplayMemberBinding="{Binding StartLocation.Name}" Width="150"/>
+                                <GridViewColumn Header="Destination" DisplayMemberBinding="{Binding EndLocation.Name}" Width="150"/>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                    <StackPanel  Grid.Row="3" Orientation="Vertical" Grid.Column="1">
+                        <Button  Margin="2" Height="25" Content="Add" Click="AddRoute_Click" />
+                        <Button  Margin="2" Height="25" Content="Remove" Click="RemoveRoute_Click"/>
+                    </StackPanel>
+
+                    <TextBlock Grid.Row="4" Grid.ColumnSpan="2" TextAlignment="Left" Text="Check points" FontWeight="Bold"/>
+                    <ListView Grid.Row="5" Grid.Column="0" Margin="2" Name="chckptlistView"
+                              ItemsSource="{Binding CheckPoints}"
+                              SelectedItem="{Binding SelectedCheckPoint}">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="No" DisplayMemberBinding="{Binding No}"/>
+                                <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" Width="150"/>
+                                <GridViewColumn Header="Description" DisplayMemberBinding="{Binding Description}" Width="250"/>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                    <StackPanel  Grid.Row="5" Orientation="Vertical" Grid.Column="1">
+                        <Button  Margin="2" Height="25" Content="Add" Click="AddCheckPoint_Click" />
+                        <Button  Margin="2" Height="25" Content="Remove" Click="RemoveCheckPoint_Click"/>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</UserControl>

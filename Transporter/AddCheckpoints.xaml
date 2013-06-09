@@ -1,0 +1,28 @@
+﻿<Window x:Class="Transporter.AddCheckPoints"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Add Location" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <StackPanel Orientation="Vertical" Margin="2">
+            <StackPanel Orientation="Horizontal" Margin="1">
+                <TextBlock Margin="2" Text="Source" Width="80" />
+                <TextBox Margin="2" Text="{Binding Name}" Width="150"/>
+                <TextBlock Margin="2" Text="Destination" Width="80" />
+                <TextBox Margin="2" Text="{Binding Name}" Width="150"/>
+                <Button Margin="2">...</Button>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="1">
+                <TextBlock Margin="2" Text="Latitide" Width="80" />
+                <TextBox Margin="2" Text="{Binding Latitude}" Width="150"/>
+                <TextBlock Margin="2" Text="Longitude" Width="80" />
+                <TextBox Margin="2" Text="{Binding Longitude}" Width="150"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="1">
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="1" HorizontalAlignment="Right">
+                <Button Margin="2" Content="OK" Width="100" Click="Button_Click" />
+                <Button Margin="2" Content="Cancel" Width="100" Click="Button_Click_1" />
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

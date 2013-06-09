@@ -1,0 +1,29 @@
+﻿<Window x:Class="Transporter.AddDriver"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="AddDriver" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <StackPanel Orientation="Vertical" Margin="2">
+            <StackPanel Orientation="Horizontal" Margin="1">
+                <TextBlock Margin="2" Text="ID" Width="120" />
+                <TextBox Margin="2" Text="{Binding ID}" Width="150"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="1">
+                <TextBlock Margin="2" Text="Name" Width="120" />
+                <TextBox Margin="2" Text="{Binding Name}" Width="150"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="1">
+                <TextBlock Margin="2" Text="CellNumber" Width="120" />
+                <TextBox Margin="2" Text="{Binding CellNumber}" Width="150"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="1">
+                <TextBlock Margin="2" Text="Address" Width="120" />
+                <TextBox Margin="2" Text="{Binding Address}" Width="150"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="1" HorizontalAlignment="Right">
+                <Button Margin="2" Content="OK" Width="100" Click="OK_Button_Click" />
+                <Button Margin="2" Content="Cancel" Width="100" Click="Cancel_Button_Click" />
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>
